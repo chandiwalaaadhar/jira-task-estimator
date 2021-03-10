@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Scrum Poker{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<form method="POST" action="" enctype="multipart/form-data">
+    <h2>Enter New Task Description</h2>
+    <textarea name="task_name" rows="10" cols="20"></textarea>
+    
+    <p><input type="submit" value="Submit"></p>
+</form>
+
+<h1>Analysis of Task</h1>
+<p>{{ result[2][0][0] }}</p>
+<table>
+    <thead>
+        <tr>
+          <th>User</th>
+          <th>Story Points</th>
+        </tr>
+    </thead>
+    {% for i in result[0] %}
+    <tr>
+        <td>{{ i[1] }}</td>
+        <td>{{ i[2] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+ <h2>The average Story point is {{ result[1][0][0] }}</h2>
+ <button onClick="history.go(0);">Analyze</button>
+{% endblock %}
+ 

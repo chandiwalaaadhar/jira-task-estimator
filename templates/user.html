@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+<h1>{% block title %}Scrum Poker{% endblock %}</h1>
+
+{% block header %} 
+<h1>Estimate Story Points</h1>
+{% endblock %}
+
+{% block content %}
+<p>{{ result[0] }}</p>
+<form method="post">
+    <label for="text">Enter your name</label>
+    <input name="name" id="name" required>
+    
+    <label for="number">Enter the Estimated Story Points</label>
+    <input name="points" id="points" required>
+    
+    <input type="submit" value="Submit">
+</form>
+<button onClick="history.go(0);">Vote For New Task</button>
+{% endblock %}
